@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 import Counter from './components/Counter';
+import Counter2 from './components/Counter2';
 
 // 用Provider包裹CounterComponent组件
 // 并且把store传给Provider
@@ -11,6 +12,8 @@ import Counter from './components/Counter';
 ReactDom.render(
     <Provider store={store}>
         <Counter />
+        <br/>
+        <Counter2 />
     </Provider>,
     document.getElementById("app")
 );

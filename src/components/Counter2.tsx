@@ -2,9 +2,9 @@ import * as React from 'react';
 // 引入connect，让组件和仓库建立连接
 import { connect } from 'react-redux';
 // 引入actions，用于传给connect
-import actions from '../store/actions/counter';
+import actions from '../store/actions/counter2';
 // 引入接口约束
-import { IStore, Counter } from '../types';
+import { IStore, Counter2 } from '../types';
 
 type CounterProps = {
     number: number,
@@ -18,7 +18,7 @@ type CounterState = {
     // number: number
 }
 
-class CounterComponent extends React.Component<CounterProps, CounterState> {
+class CounterComponent2 extends React.Component<CounterProps, CounterState> {
     state = {
         // number: 0
     }
@@ -42,11 +42,11 @@ class CounterComponent extends React.Component<CounterProps, CounterState> {
 // connect第一次执行，需要两个参数，
 
 // 需要传给connect的函数
-const mapStateToProps = function(state: IStore): Counter {
-    return state.counter
+const mapStateToProps = function(state: IStore): Counter2 {
+    return state.counter2
 };
 
 export default connect(
     mapStateToProps,
     actions
-)(CounterComponent);
+)(CounterComponent2);

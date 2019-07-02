@@ -1,30 +1,15 @@
-// 导入类型校验的接口
-// 用来约束state的
-import { IStore } from '../../types';
+// 多个reducer是通过combineReducers方法，进行合并的，因为我们一个项目当中肯定是存在非常多个reducer，所以统一在这里处理
 
-// 导入约束action的接口
-import { Action } from '../actions/counter';
-// 引入action动作行为的常量
-import * as types from "../action-types";
+// 引入合并方法
+import { combineReducers } from "redux";
+// 引入需要合并的reducer
+import counter from "./counter";
+// 引入需要合并的reducer
+import counter2 from "./counter2";
 
-let initState: IStore = {
-    number: 0
-};
+const reducers = combineReducers({
+    counter,
+    counter2
+});
 
-export default function(state: IStore = initState, action: Action) {
-    // 拿到老的状态state和新的状态action
-    // action是一个动作行为，而这个动作行为，在计数器中是具备 加 或 减 两个功能
-    // 判断action的行为类型
-    switch (action.type) {
-        case types.ADD:
-            return {
-                number: state.number + 1
-            }
-        case types.SUBTRACT:
-            return {
-                number: state.number - 1
-            }
-        default:
-            return state
-    }
-}
+export default reducers;
