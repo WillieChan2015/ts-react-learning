@@ -27,6 +27,7 @@ class CounterComponent2 extends React.Component<CounterProps, CounterState> {
         let { number, add, subtract, addAsync } = this.props;
         return (
             <div>
+                <p>Counter2</p>
                 <p>{number}</p>
                 <button onClick={add}>+1</button>
                 <br/>
