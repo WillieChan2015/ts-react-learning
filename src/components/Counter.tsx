@@ -12,6 +12,7 @@ type CounterProps = {
     add: any,
     // subtract是一个函数
     subtract:any,
+    addAsync:any,
 }
 type CounterState = {
     // number: number
@@ -23,13 +24,15 @@ class Counter extends React.Component<CounterProps, CounterState> {
     }
 
     render() {
-        let { number, add, subtract } = this.props;
+        let { number, add, subtract, addAsync } = this.props;
         return (
             <div>
                 <p>{number}</p>
                 <button onClick={add}>+1</button>
                 <br/>
                 <button onClick={subtract}>-1</button>
+                <br/>
+                <button onClick={addAsync}>异步加1</button>
             </div>
         )
     }

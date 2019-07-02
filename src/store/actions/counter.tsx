@@ -16,7 +16,7 @@ export interface ISubtract {
 export type Action = IAdd | ISubtract
 
 export default {
-    add() {
+    add(): IAdd {
         // 需要返回一个action对象
         // type为动作的类型
         return {
@@ -24,9 +24,17 @@ export default {
         }
     },
 
-    subtract() {
+    subtract(): ISubtract {
         return {
             type: types.SUBTRACT
+        }
+    },
+
+    addAsync(): any {
+        return function(dispatch: any, getState: any) {
+            setTimeout(() => {
+                dispatch({type: types.ADD});
+            }, 1000);
         }
     }
 }
